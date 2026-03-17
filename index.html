@@ -74,12 +74,22 @@ h1 { font-size: 3rem; color: #38bdf8; }
 h2 { margin-bottom: 20px; }
 
 .card {
-    background: #1e293b;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px;
     margin: 20px;
     max-width: 350px;
-    border-radius: 12px;
-    transition: 0.3s;
+    border-radius: 16px;
+    transition: 0.35s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(56,189,248,0.25);
+    border: 1px solid rgba(56,189,248,0.4);
 }
 
 .card:hover {
