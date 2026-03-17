@@ -12,12 +12,33 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0f172a;
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #6366f1);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
     color: #fff;
     scroll-behavior: smooth;
 }
 
-/* PARTICLES */
+/* gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* glow overlay */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(56,189,248,0.25), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(99,102,241,0.25), transparent 40%);
+    z-index: -1;
+}
+
+/* particles */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -25,9 +46,10 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+    opacity: 0.5;
 }
 
-/* CURSOR */
+/* cursor */
 .cursor {
     position: fixed;
     width: 12px;
@@ -35,7 +57,6 @@ body {
     background: #38bdf8;
     border-radius: 50%;
     pointer-events: none;
-    transform: translate(-50%, -50%);
     z-index: 9999;
 }
 
@@ -46,15 +67,14 @@ body {
     background: rgba(56,189,248,0.2);
     border-radius: 50%;
     pointer-events: none;
-    transform: translate(-50%, -50%);
     z-index: 9998;
 }
 
-/* HEADER */
+/* header */
 header {
     position: fixed;
     width: 100%;
-    background: rgba(15,23,42,0.9);
+    background: rgba(15,23,42,0.85);
     padding: 15px;
     text-align: center;
     z-index: 1000;
@@ -66,7 +86,7 @@ header a {
     text-decoration: none;
 }
 
-/* SECTIONS */
+/* sections */
 section {
     padding: 100px 20px;
     text-align: center;
@@ -75,43 +95,39 @@ section {
 h1 { font-size: 3rem; color: #38bdf8; }
 h2 { margin-bottom: 20px; }
 
-/* GLASS CARDS */
+/* cards */
 .card {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255,255,255,0.06);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     padding: 20px;
     margin: 20px;
     max-width: 350px;
     border-radius: 18px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 40px rgba(0,0,0,0.35);
     transform-style: preserve-3d;
+    transition: 0.3s;
 }
 
 .card:hover {
     transform: scale(1.03);
     box-shadow: 0 20px 60px rgba(56,189,248,0.4);
-    border: 1px solid rgba(56,189,248,0.5);
 }
 
-/* ICON */
 .icon {
     font-size: 30px;
-    margin-bottom: 10px;
-    display: block;
     color: #38bdf8;
-    text-shadow: 0 0 8px #38bdf8, 0 0 20px #38bdf8;
+    text-shadow: 0 0 10px #38bdf8;
 }
 
-/* GRID */
+/* grid */
 .grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* BUTTONS */
+/* buttons */
 .btn {
     display: inline-block;
     padding: 10px 18px;
@@ -121,17 +137,14 @@ h2 { margin-bottom: 20px; }
     color: #000;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 14px;
 }
-
-.btn:hover { opacity: 0.8; }
 
 .linkedin {
     background: #0a66c2;
     color: white;
 }
 
-/* FADE */
+/* fade */
 .fade {
     opacity: 0;
     transform: translateY(20px);
@@ -161,12 +174,11 @@ h2 { margin-bottom: 20px; }
 <section id="home">
     <h1>Hi, I'm Kiran 👋</h1>
     <p id="typing"></p>
-    <a class="btn" href="#projects">View My Work</a>
 </section>
 
 <section id="about" class="fade">
     <h2>About Me</h2>
-    <p>I build cool stuff combining electronics + code. Interested in AI, embedded systems and creative tech.</p>
+    <p>I build cool stuff combining electronics + code.</p>
 </section>
 
 <section id="projects" class="fade">
@@ -176,96 +188,68 @@ h2 { margin-bottom: 20px; }
         <div class="card">
             <span class="icon">🧤</span>
             <h3>Gesture Control Glove</h3>
-            <p>Control devices using hand gestures via ESP32.</p>
-            <a class="btn" href="https://github.com/kiransaju11/gesture-glove">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7373797165611114496/">LinkedIn</a>
+            <a class="btn" href="#">GitHub</a>
+            <a class="btn linkedin" href="#">LinkedIn</a>
         </div>
 
         <div class="card">
             <span class="icon">🐍</span>
-            <h3>Hardcore Python Turtle</h3>
-            <p>Made a complex pattern with python turtle just for the love of the game.</p>
-            <a class="btn" href="https://github.com/kiransaju11/python_turtle">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7355126419825295360/">LinkedIn</a>
+            <h3>Python Turtle</h3>
+            <a class="btn" href="#">GitHub</a>
+            <a class="btn linkedin" href="#">LinkedIn</a>
         </div>
 
         <div class="card">
             <span class="icon">🧠</span>
-            <h3>Fun Math Quiz Webapp</h3>
-            <p>Bored?, here's a fun math game for you</p>
+            <h3>Math Quiz</h3>
             <a class="btn" href="#">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7364713344672456704/">LinkedIn</a>
+            <a class="btn linkedin" href="#">LinkedIn</a>
         </div>
 
     </div>
 </section>
 
-<section id="contact" class="fade">
-    <h2>Contact</h2>
-    <p>Email: kiransaju39@gmail.com</p>
-    <p>GitHub: github.com/kiransaju11</p>
-</section>
-
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
-// PARTICLES
+// particles
 particlesJS("particles-js", {
   particles: {
-    number: { value: 80 },
-    color: { value: "#38bdf8" },
-    line_linked: { enable: true, color: "#38bdf8" },
-    move: { speed: 2 }
+    number: { value: 120 },
+    color: { value: ["#38bdf8", "#818cf8", "#22d3ee"] },
+    line_linked: { enable: true },
+    move: { speed: 1.5 }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "grab" } }
   }
 });
 
-// TYPING
-const text = "ECE Student | AI/ML | Hardware Builder";
+// typing
+const text = "ECE Student | AI/ML | Builder";
 let i = 0;
 function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 50);
-  }
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 50);
+    }
 }
 type();
 
-// CURSOR
-const cursor = document.querySelector('.cursor');
-const glow = document.querySelector('.cursor-glow');
-
-document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+// cursor
+document.addEventListener("mousemove", e => {
+    document.querySelector(".cursor").style.left = e.clientX + "px";
+    document.querySelector(".cursor").style.top = e.clientY + "px";
+    document.querySelector(".cursor-glow").style.left = e.clientX + "px";
+    document.querySelector(".cursor-glow").style.top = e.clientY + "px";
 });
 
-// TILT
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = -(y - rect.height / 2) / 20;
-        const rotateY = (x - rect.width / 2) / 20;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
-    });
-});
-
-// FADE
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
+// fade
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".fade").forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-            el.classList.add('show');
+            el.classList.add("show");
         }
     });
 });
