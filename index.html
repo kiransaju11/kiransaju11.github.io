@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -17,7 +17,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* 🔥 PARTICLE BACKGROUND */
+/* PARTICLES */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -25,6 +25,29 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+/* GLOW CURSOR */
+.cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #38bdf8;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(56,189,248,0.2);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
 }
 
 header {
@@ -82,9 +105,7 @@ h2 { margin-bottom: 20px; }
     transition: 0.3s;
 }
 
-.btn:hover {
-    opacity: 0.8;
-}
+.btn:hover { opacity: 0.8; }
 
 .linkedin {
     background: #0a66c2;
@@ -106,8 +127,9 @@ h2 { margin-bottom: 20px; }
 
 <body>
 
-<!-- 🔥 PARTICLES -->
 <div id="particles-js"></div>
+<div class="cursor"></div>
+<div class="cursor-glow"></div>
 
 <header>
     <a href="#home">Home</a>
@@ -118,7 +140,7 @@ h2 { margin-bottom: 20px; }
 
 <section id="home">
     <h1>Hi, I'm Kiran 👋</h1>
-    <p>ECE Student | AI/ML | Hardware Builder</p>
+    <p id="typing"></p>
     <a class="btn" href="#projects">View My Work</a>
 </section>
 
@@ -161,7 +183,6 @@ h2 { margin-bottom: 20px; }
     <p>GitHub: github.com/kiransaju11</p>
 </section>
 
-<!-- 🔥 PARTICLES SCRIPT -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
@@ -179,21 +200,39 @@ particlesJS("particles-js", {
       opacity: 0.4,
       width: 1
     },
-    move: {
-      enable: true,
-      speed: 2
-    }
+    move: { enable: true, speed: 2 }
   },
   interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" }
-    }
+    events: { onhover: { enable: true, mode: "repulse" } }
   }
+});
+
+// Typing Effect
+const text = "ECE Student | AI/ML | Hardware Builder";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 50);
+  }
+}
+type();
+
+// Cursor Glow
+const cursor = document.querySelector('.cursor');
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
 });
 
 // Fade animation
 const faders = document.querySelectorAll('.fade');
-
 window.addEventListener('scroll', () => {
     faders.forEach(el => {
         const rect = el.getBoundingClientRect();
