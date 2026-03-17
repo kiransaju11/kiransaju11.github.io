@@ -17,6 +17,16 @@ body {
     scroll-behavior: smooth;
 }
 
+/* 🔥 PARTICLE BACKGROUND */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 header {
     position: fixed;
     width: 100%;
@@ -96,6 +106,9 @@ h2 { margin-bottom: 20px; }
 
 <body>
 
+<!-- 🔥 PARTICLES -->
+<div id="particles-js"></div>
+
 <header>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -122,21 +135,21 @@ h2 { margin-bottom: 20px; }
             <h3>Gesture Control Glove</h3>
             <p>Control devices using hand gestures via ESP32.</p>
             <a class="btn" href="https://github.com/kiransaju11/gesture-glove">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7373797165611114496/?originTrackingId=J6ScbkpgGveWkmyd99Nw1Q%3D%3D">LinkedIn</a>
+            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7373797165611114496/">LinkedIn</a>
         </div>
 
         <div class="card">
             <h3>Hardcore Python Turtle</h3>
             <p>Made a complex pattern with python turtle just for the love of the game.</p>
             <a class="btn" href="https://github.com/kiransaju11/python_turtle">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7355126419825295360/?originTrackingId=DoMUVXsaulolimJgAF63Ug%3D%3D">LinkedIn</a>
+            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7355126419825295360/">LinkedIn</a>
         </div>
 
         <div class="card">
             <h3>Fun Math Quiz Webapp</h3>
             <p>Bored?, here's a fun math game for you</p>
             <a class="btn" href="#">GitHub</a>
-            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7364713344672456704/?originTrackingId=Xl%2F%2F%2B%2F1QI8eci7WZe3bOEQ%3D%3D">LinkedIn</a>
+            <a class="btn linkedin" href="https://www.linkedin.com/feed/update/urn:li:activity:7364713344672456704/">LinkedIn</a>
         </div>
 
     </div>
@@ -148,7 +161,37 @@ h2 { margin-bottom: 20px; }
     <p>GitHub: github.com/kiransaju11</p>
 </section>
 
+<!-- 🔥 PARTICLES SCRIPT -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 <script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    color: { value: "#38bdf8" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#38bdf8",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" }
+    }
+  }
+});
+
+// Fade animation
 const faders = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll', () => {
