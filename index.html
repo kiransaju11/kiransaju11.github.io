@@ -19,14 +19,12 @@ body {
     scroll-behavior: smooth;
 }
 
-/* gradient animation */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* glow overlay */
 body::before {
     content: "";
     position: fixed;
@@ -38,7 +36,6 @@ body::before {
     z-index: -1;
 }
 
-/* particles */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -49,7 +46,6 @@ body::before {
     opacity: 0.5;
 }
 
-/* cursor */
 .cursor {
     position: fixed;
     width: 12px;
@@ -70,7 +66,6 @@ body::before {
     z-index: 9998;
 }
 
-/* header */
 header {
     position: fixed;
     width: 100%;
@@ -86,7 +81,6 @@ header a {
     text-decoration: none;
 }
 
-/* sections */
 section {
     padding: 100px 20px;
     text-align: center;
@@ -95,7 +89,6 @@ section {
 h1 { font-size: 3rem; color: #38bdf8; }
 h2 { margin-bottom: 20px; }
 
-/* cards */
 .card {
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(16px);
@@ -114,20 +107,24 @@ h2 { margin-bottom: 20px; }
     box-shadow: 0 20px 60px rgba(56,189,248,0.4);
 }
 
+.card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
 .icon {
     font-size: 30px;
     color: #38bdf8;
     text-shadow: 0 0 10px #38bdf8;
 }
 
-/* grid */
 .grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* buttons */
 .btn {
     display: inline-block;
     padding: 10px 18px;
@@ -144,7 +141,6 @@ h2 { margin-bottom: 20px; }
     color: white;
 }
 
-/* fade */
 .fade {
     opacity: 0;
     transform: translateY(20px);
@@ -168,6 +164,7 @@ h2 { margin-bottom: 20px; }
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#volunteering">Volunteering</a>
     <a href="#contact">Contact</a>
 </header>
 
@@ -209,10 +206,41 @@ h2 { margin-bottom: 20px; }
     </div>
 </section>
 
+<section id="volunteering" class="fade">
+    <h2>Volunteering</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="tinkerhack.jpg">
+
+            <h3>Mentor – TinkerHack 4.0</h3>
+            <p><i>TinkerHub Foundation</i></p>
+
+            <p>
+                Mentored participants at a girls-only overnight hackathon focused on empowering women in tech. 
+                Traveled from Kochi to Trivandrum to support teams in building real-world projects.
+            </p>
+
+            <p>
+                Guided teams through debugging and last-minute deployment challenges, ensuring successful project completion.
+            </p>
+
+            <p><b>Impact:</b> Helped teams complete projects and boosted confidence among first-time builders.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+    <p>Email: kiransaju39@gmail.com</p>
+    <p>GitHub: github.com/kiransaju11</p>
+</section>
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
-// particles
 particlesJS("particles-js", {
   particles: {
     number: { value: 120 },
@@ -225,7 +253,6 @@ particlesJS("particles-js", {
   }
 });
 
-// typing
 const text = "ECE Student | AI/ML | Builder";
 let i = 0;
 function type() {
@@ -237,7 +264,6 @@ function type() {
 }
 type();
 
-// cursor
 document.addEventListener("mousemove", e => {
     document.querySelector(".cursor").style.left = e.clientX + "px";
     document.querySelector(".cursor").style.top = e.clientY + "px";
@@ -245,7 +271,6 @@ document.addEventListener("mousemove", e => {
     document.querySelector(".cursor-glow").style.top = e.clientY + "px";
 });
 
-// fade
 window.addEventListener("scroll", () => {
     document.querySelectorAll(".fade").forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight - 50) {
