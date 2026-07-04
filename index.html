@@ -186,7 +186,16 @@ h2 { margin-bottom: 20px; }
     padding:35px;
     text-align:left;
 }
+.hero-title{
+    font-size:5rem;
+    font-weight:700;
+    line-height:1.1;
+}
 
+.hero-title span{
+    color:#38bdf8;
+}
+    
 .story-content h3{
     font-size:28px;
     margin-bottom:10px;
@@ -247,6 +256,19 @@ height:240px;
     gap:10px;
     padding:20px;
 }
+#home{
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
 
 .image-gallery img{
     width:100%;
@@ -287,13 +309,23 @@ justify-content:center;
 </header>
 
 <section id="home">
-    <h1>Hi, I'm Kiran 👋</h1>
-    <p id="typing"></p>
+<h1 class="hero-title">
+Hi, I'm <span>Kiran</span>
+</h1>    <p id="typing"></p>
 </section>
 
 <section id="about" class="fade">
     <h2>About Me</h2>
     <p>I build cool stuff combining electronics + code.</p>
+    <a href="#projects" class="btn">
+View My Work
+</a>
+
+<a href="resume.pdf"
+class="btn linkedin"
+target="_blank">
+Download Resume
+</a>
 </section>
 
 <section id="projects" class="fade">
