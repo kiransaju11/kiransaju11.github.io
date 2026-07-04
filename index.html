@@ -36,15 +36,116 @@ body::before {
     z-index: -1;
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    opacity: 0.5;
-}
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 85,
+      density: {
+        enable: true,
+        value_area: 900
+      }
+    },
+
+    color: {
+      value: ["#38bdf8", "#22d3ee", "#818cf8"]
+    },
+
+    shape: {
+      type: "circle"
+    },
+
+    opacity: {
+      value: 0.45,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 0.8,
+        opacity_min: 0.15,
+        sync: false
+      }
+    },
+
+    size: {
+      value: 4,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 2,
+        size_min: 1,
+        sync: false
+      }
+    },
+
+    line_linked: {
+      enable: true,
+      distance: 170,
+      color: "#5bc0ff",
+      opacity: 0.18,
+      width: 1
+    },
+
+    move: {
+      enable: true,
+      speed: 1.2,
+      direction: "none",
+      random: true,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: true,
+        rotateX: 1200,
+        rotateY: 1200
+      }
+    }
+  },
+
+  interactivity: {
+    detect_on: "canvas",
+
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab"
+      },
+
+      onclick: {
+        enable: true,
+        mode: "push"
+      },
+
+      resize: true
+    },
+
+    modes: {
+
+      grab: {
+        distance: 180,
+        line_linked: {
+          opacity: 0.7
+        }
+      },
+
+      bubble: {
+        distance: 250,
+        size: 8,
+        duration: 2,
+        opacity: 0.8
+      },
+
+      push: {
+        particles_nb: 4
+      },
+
+      repulse: {
+        distance: 150
+      }
+
+    }
+  },
+
+  retina_detect: true
+});
 
 .cursor {
     position: fixed;
